@@ -24,7 +24,7 @@ grid.addEventListener('click', ev => {
 const Airtable = require('airtable');
 const base = new Airtable({ apiKey: 'keyOTDtDLXGLvk8kt' }).base('appVYJBJSrP9QrYLa');
 const table = base('Website Content');
-const websiteContent = ['headline', 'invitation', 'schedule1', 'schedule2', 'schedule3', 'schedule4', 'rsvp', 'travel', 'accommodations', 'todo', 'faq', 'contact', 'contribute', 'requests', 'draw', 'secret'];
+const websiteContent = ['headline', 'invitation', 'schedule', 'rsvp', 'travel', 'accommodations', 'todo', 'faq', 'contact', 'contribute', 'requests', 'draw', 'secret'];
 
 table.select({
     view: 'Grid view'
@@ -33,11 +33,8 @@ table.select({
 
     records.forEach(function(record, i) {
       document.getElementById('content-' + websiteContent[i]).innerHTML =
-        '<div><h2>'
-        + record.get('Name')
-        + '</h2> <div>'
-        + record.get('Content')
-        + '</div></div>';
+        '<div><h2>' + record.get('Name') + '</h2>'
+        + record.get('Content') + '</div>';
     });
 
     fetchNextPage();
