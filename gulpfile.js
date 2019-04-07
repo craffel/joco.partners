@@ -1,11 +1,15 @@
 // generated on 2019-04-06 using generator-webapp 4.0.0-3
 const { src, dest, watch, series, parallel, lastRun } = require('gulp');
 const gulpLoadPlugins = require('gulp-load-plugins');
+const babelify = require('babelify');
+const browserify = require('browserify');
 const browserSync = require('browser-sync');
+const buffer = require('vinyl-buffer');
 const del = require('del');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const { argv } = require('yargs');
+const source = require('vinyl-source-stream');
 
 const $ = gulpLoadPlugins();
 const server = browserSync.create();
@@ -34,13 +38,23 @@ function styles() {
 };
 
 function scripts() {
-  return src('app/scripts/**/*.js')
-    .pipe($.plumber())
-    .pipe($.if(!isProd, $.sourcemaps.init()))
-    .pipe($.babel())
-    .pipe($.if(!isProd, $.sourcemaps.write('.')))
-    .pipe(dest('.tmp/scripts'))
-    .pipe(server.reload({stream: true}));
+  return browserify({
+    'entries': ['app/scripts/main.js'],
+    'debug': true,
+    'transform': [
+        babelify.configure({
+            'presets': ['@babel/preset-env', '@babel/preset-react']
+        })
+    ]
+  })
+  .bundle()
+
+  .pipe(source('app/scripts/**/*.js'))
+  .pipe(buffer())
+  .pipe($.sourcemaps.init({'loadMaps': true}))
+  .pipe($.sourcemaps.write('.'))
+  .pipe(dest('.tmp/scripts'))
+  .pipe(browserSync.stream());
 };
 
 
