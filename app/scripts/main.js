@@ -27,7 +27,7 @@ const table = base('Website Content');
 const websiteContent = ['headline', 'invitation', 'schedule1', 'schedule2', 'schedule3', 'schedule4', 'rsvp', 'travel', 'accommodations', 'todo', 'faq', 'contact', 'contribute', 'requests', 'draw', 'secret'];
 
 table.select({
-    view: "Grid view"
+    view: 'Grid view'
 }).eachPage(function page(records, fetchNextPage) {
     // This function (`page`) will get called for each page of records.
 
