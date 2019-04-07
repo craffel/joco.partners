@@ -20,3 +20,28 @@ grid.addEventListener('click', ev => {
     target = target.parentElement;
   }
 });
+
+const Airtable = require('airtable');
+const base = new Airtable({ apiKey: 'keyOTDtDLXGLvk8kt' }).base('appVYJBJSrP9QrYLa');
+const table = base('Website Content');
+const websiteContent = ['headline', 'invitation', 'schedule1', 'schedule2', 'schedule3', 'schedule4', 'rsvp', 'travel', 'accommodations', 'todo', 'faq', 'contact', 'contribute', 'requests', 'draw', 'secret'];
+
+table.select({
+    view: "Grid view"
+}).eachPage(function page(records, fetchNextPage) {
+    // This function (`page`) will get called for each page of records.
+
+    records.forEach(function(record, i) {
+      document.getElementById('content-' + websiteContent[i]).innerHTML =
+        '<div><h2>'
+        + record.get('Name')
+        + '</h2> <div>'
+        + record.get('Content')
+        + '</div></div>';
+    });
+
+    fetchNextPage();
+
+}, function done(err) {
+    if (err) { console.error(err); return; }
+});

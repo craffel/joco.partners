@@ -15,22 +15,22 @@ body {
   grid-auto-rows: 10em;
   grid-gap: 1em;
   grid-template-areas:
-    "header header header slideshow slideshow"
-    "celebrate celebrate celebrate slideshow slideshow"
+    "headline headline headline slideshow slideshow"
+    "invitation invitation invitation slideshow slideshow"
     "schedule schedule schedule illustration illustration"
     "rsvp rsvp rsvp illustration illustration"
 }
 
-.card-header {
-  grid-area: header;
+.card-headline {
+  grid-area: headline;
 }
 
 .card-slideshow {
   grid-area: slideshow;
 }
 
-.card-celebrate {
-  grid-area: celebrate;
+.card-invitation {
+  grid-area: invitation;
 }
 
 .card-schedule {
