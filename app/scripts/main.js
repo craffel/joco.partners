@@ -15,9 +15,18 @@ grid.addEventListener('click', ev => {
   while (target.tagName !== 'HTML') {
       if (target.classList.contains('card-grow')) {
         target.classList.toggle('card-expanded');
-        return;
+        var clicked_element = target;
+        break;
       }
     target = target.parentElement;
+  }
+  var elements = document.getElementsByTagName('div');
+  for (var i=0; i<elements.length; i++) {
+      if (elements[i].classList.contains('card-grow') &&
+          elements[i].classList.contains('card-expanded') &&
+          elements[i] != clicked_element) {
+            elements[i].classList.remove('card-expanded');
+      }
   }
 });
 
