@@ -1,3 +1,6 @@
+/*
+** ANIMATE CARD OPEN AND CLOSE
+*/
 const grid = document.querySelector('.container');
 
 animateCSSGrid.wrapGrid(grid, {
@@ -15,13 +18,13 @@ grid.addEventListener('click', ev => {
   while (target.tagName !== 'HTML') {
       if (target.classList.contains('card-grow')) {
         target.classList.toggle('card-expanded');
-        var clicked_element = target;
+        let clicked_element = target;
         break;
       }
     target = target.parentElement;
   }
-  var elements = document.getElementsByTagName('div');
-  for (var i=0; i<elements.length; i++) {
+  let elements = document.getElementsByTagName('div');
+  for (let i=0; i<elements.length; i++) {
       if (elements[i].classList.contains('card-grow') &&
           elements[i].classList.contains('card-expanded') &&
           elements[i] != clicked_element) {
@@ -30,6 +33,9 @@ grid.addEventListener('click', ev => {
   }
 });
 
+/*
+** READ DATA FROM AIRTABLE
+*/
 const Airtable = require('airtable');
 const base = new Airtable({ apiKey: 'keyOTDtDLXGLvk8kt' }).base('appVYJBJSrP9QrYLa');
 const table = base('Website Content');
@@ -50,4 +56,38 @@ table.select({
 
 }, function done(err) {
     if (err) { console.error(err); return; }
+});
+
+/*
+** SELECT 15 RANDOM PHOTOS
+*/
+let photoArray = []
+while(photoArray.length < 15){
+    let r = Math.floor(Math.random()*171) + 1;
+    if(photoArray.indexOf(r) === -1) photoArray.push(r);
+}
+
+photoArray.forEach(function(photoNumber, i) {
+  let newPhoto = '<div><img style="width: 100%; height: auto;" src="../images/' + photoNumber + '.jpg"></div>';
+  let newEl = document.createElement('div');
+
+  newEl.innerHTML = newPhoto;
+
+  while(newEl.firstChild) {
+    document.getElementById('tns').appendChild(newEl.firstChild);
+  }
+
+});
+
+/*
+** TINY SLIDER
+*/
+const slider = tns({
+  'autoHeight': true,
+  'autoWidth': true,
+  'container': '#tns',
+  'items': 15,
+  'slideBy': 'page',
+  'autoplay': true,
+  'speed': 300,
 });
