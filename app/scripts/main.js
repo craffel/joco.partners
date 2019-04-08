@@ -68,10 +68,14 @@ while(photoArray.length < 15){
 }
 
 photoArray.forEach(function(photoNumber, i) {
-  let newPhoto = '<div class="card-slideshow-slide"><img src="../images/' + photoNumber + '.jpg"></div>';
+  let newPhoto = '<div class="card-slideshow-slide" style="background-image: url(../images/' + photoNumber + '.jpg)"></div>';
+  let newEl = document.createElement('div');
 
-  while(newPhoto.firstChild) {
-    document.getElementById('content-slideshow').appendChild(newPhoto.firstChild);
+  newEl.innerHTML = newPhoto;
+  newEl.className = 'card-slideshow-container';
+
+  while(newEl.firstChild) {
+    document.getElementById('content-slideshow').appendChild(newEl.firstChild);
   }
 
 });
