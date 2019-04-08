@@ -68,26 +68,10 @@ while(photoArray.length < 15){
 }
 
 photoArray.forEach(function(photoNumber, i) {
-  let newPhoto = '<div><img style="width: 100%; height: auto;" src="../images/' + photoNumber + '.jpg"></div>';
-  let newEl = document.createElement('div');
+  let newPhoto = '<div class="card-slideshow-slide"><img src="../images/' + photoNumber + '.jpg"></div>';
 
-  newEl.innerHTML = newPhoto;
-
-  while(newEl.firstChild) {
-    document.getElementById('tns').appendChild(newEl.firstChild);
+  while(newPhoto.firstChild) {
+    document.getElementById('content-slideshow').appendChild(newPhoto.firstChild);
   }
 
-});
-
-/*
-** TINY SLIDER
-*/
-const slider = tns({
-  'autoHeight': true,
-  'autoWidth': true,
-  'container': '#tns',
-  'items': 15,
-  'slideBy': 'page',
-  'autoplay': true,
-  'speed': 300,
 });
