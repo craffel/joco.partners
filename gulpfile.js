@@ -37,26 +37,6 @@ function styles() {
     .pipe(server.reload({stream: true}));
 };
 
-function vendor() {
-  return browserify({
-    'entries': ['app/scripts/vendor.js'],
-    'debug': true
-  })
-
-  .require('airtable')
-  .require('animate-css-grid')
-  .require('css-doodle')
-  .require('nanobar')
-  .bundle()
-  .pipe(source('app/scripts/vendor.js'))
-  .pipe(buffer())
-  .pipe($.sourcemaps.init({'loadMaps': true}))
-  .pipe($.sourcemaps.write('.'))
-  .pipe(dest('.tmp/scripts'))
-  .pipe(browserSync.stream());
-  ;
-};
-
 function scripts() {
   return browserify({
     'entries': ['app/scripts/main.js'],
@@ -67,11 +47,6 @@ function scripts() {
         })
     ]
   })
-  .external('airtable')
-  .external('animate-css-grid')
-  .external('css-doodle')
-  .external('nanobar')
-  .transform(babelify)
   .bundle()
   .pipe(source('app/scripts/main.js'))
   .pipe(buffer())
@@ -147,7 +122,7 @@ const build = series(
   clean,
   parallel(
     lint,
-    series(parallel(styles, scripts, vendor), html),
+    series(parallel(styles, scripts), html),
     images,
     fonts,
     extras
@@ -215,9 +190,9 @@ function startDistServer() {
 
 let serve;
 if (isDev) {
-  serve = series(clean, parallel(styles, scripts, vendor, fonts), startAppServer);
+  serve = series(clean, parallel(styles, scripts, fonts), startAppServer);
 } else if (isTest) {
-  serve = series(clean, scripts, vendor, startTestServer);
+  serve = series(clean, scripts, startTestServer);
 } else if (isProd) {
   serve = series(build, startDistServer);
 }
