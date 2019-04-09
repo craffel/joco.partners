@@ -14,7 +14,6 @@ animateCSSGrid.wrapGrid(grid, {
 
 grid.addEventListener('click', ev => {
   let target = ev.target;
-  console.log(ev.target);
   while (target.tagName !== 'HTML') {
       if (target.classList.contains('card-grow')) {
         target.classList.toggle('card-expanded');
@@ -39,7 +38,7 @@ grid.addEventListener('click', ev => {
 const Airtable = require('airtable');
 const base = new Airtable({ apiKey: 'keyOTDtDLXGLvk8kt' }).base('appVYJBJSrP9QrYLa');
 const table = base('Website Content');
-const websiteContent = ['headline', 'invitation', 'schedule', 'rsvp', 'travel', 'accommodations', 'todo', 'faq', 'contact', 'contribute', 'requests', 'draw', 'secret'];
+const websiteContent = ['headline', 'invitation', 'schedule1', 'schedule2', 'schedule3', 'schedule4', 'rsvp', 'travel', 'accommodations', 'todo', 'faq', 'contact', 'contribute', 'requests', 'draw', 'secret'];
 
 table.select({
     view: 'Grid view'
