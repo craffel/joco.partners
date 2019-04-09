@@ -48,14 +48,13 @@ function scripts() {
     ]
   })
   .bundle()
-  .pipe(source('app/scripts/**/*.js'))
+  .pipe(source('app/scripts/main.js'))
   .pipe(buffer())
   .pipe($.sourcemaps.init({'loadMaps': true}))
   .pipe($.sourcemaps.write('.'))
   .pipe(dest('.tmp/scripts'))
   .pipe(browserSync.stream());
 };
-
 
 const lintBase = files => {
   return src(files)
@@ -134,6 +133,7 @@ const build = series(
 function startAppServer() {
   server.init({
     notify: false,
+    open: false,
     port,
     server: {
       baseDir: ['.tmp', 'app'],
@@ -157,6 +157,7 @@ function startAppServer() {
 function startTestServer() {
   server.init({
     notify: false,
+    open: false,
     port,
     ui: false,
     server: {
@@ -176,6 +177,7 @@ function startTestServer() {
 function startDistServer() {
   server.init({
     notify: false,
+    open: false,
     port,
     server: {
       baseDir: 'dist',

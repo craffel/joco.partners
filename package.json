@@ -4,7 +4,9 @@
     "node": ">=4"
   },
   "dependencies": {
-    "airtable": "^0.5.10"
+    "airtable": "^0.5.10",
+    "animate-css-grid": "^1.4.0",
+    "css-doodle": "^0.6.1"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
@@ -19,7 +21,6 @@
     "cssnano": "^4.1.7",
     "del": "^3.0.0",
     "gulp": "^4.0.0",
-    "gulp-babel": "^8.0.0",
     "gulp-cli": "^2.0.1",
     "gulp-eslint": "^5.0.0",
     "gulp-filter": "^5.1.0",
@@ -32,7 +33,6 @@
     "gulp-sass": "^4.0.2",
     "gulp-size": "^3.0.0",
     "gulp-sourcemaps": "^2.2.0",
-    "gulp-uglify": "^3.0.1",
     "gulp-useref": "^3.0.0",
     "mocha": "^5.2.0",
     "vinyl-buffer": "^1.0.1",
