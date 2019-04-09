@@ -4,7 +4,10 @@
     "node": ">=4"
   },
   "dependencies": {
-    "airtable": "^0.5.10"
+    "airtable": "^0.5.10",
+    "animate-css-grid": "^1.4.0",
+    "css-doodle": "^0.6.1",
+    "nanobar": "^0.4.2"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",

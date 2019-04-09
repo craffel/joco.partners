@@ -37,6 +37,26 @@ function styles() {
     .pipe(server.reload({stream: true}));
 };
 
+function vendor() {
+  return browserify({
+    'entries': ['app/scripts/vendor.js'],
+    'debug': true
+  })
+
+  .require('airtable')
+  .require('animate-css-grid')
+  .require('css-doodle')
+  .require('nanobar')
+  .bundle()
+  .pipe(source('app/scripts/vendor.js'))
+  .pipe(buffer())
+  .pipe($.sourcemaps.init({'loadMaps': true}))
+  .pipe($.sourcemaps.write('.'))
+  .pipe(dest('.tmp/scripts'))
+  .pipe(browserSync.stream());
+  ;
+};
+
 function scripts() {
   return browserify({
     'entries': ['app/scripts/main.js'],
@@ -47,15 +67,19 @@ function scripts() {
         })
     ]
   })
+  .external('airtable')
+  .external('animate-css-grid')
+  .external('css-doodle')
+  .external('nanobar')
+  .transform(babelify)
   .bundle()
-  .pipe(source('app/scripts/**/*.js'))
+  .pipe(source('app/scripts/main.js'))
   .pipe(buffer())
   .pipe($.sourcemaps.init({'loadMaps': true}))
   .pipe($.sourcemaps.write('.'))
   .pipe(dest('.tmp/scripts'))
   .pipe(browserSync.stream());
 };
-
 
 const lintBase = files => {
   return src(files)
@@ -123,7 +147,7 @@ const build = series(
   clean,
   parallel(
     lint,
-    series(parallel(styles, scripts), html),
+    series(parallel(styles, scripts, vendor), html),
     images,
     fonts,
     extras
@@ -134,6 +158,7 @@ const build = series(
 function startAppServer() {
   server.init({
     notify: false,
+    open: false,
     port,
     server: {
       baseDir: ['.tmp', 'app'],
@@ -157,6 +182,7 @@ function startAppServer() {
 function startTestServer() {
   server.init({
     notify: false,
+    open: false,
     port,
     ui: false,
     server: {
@@ -176,6 +202,7 @@ function startTestServer() {
 function startDistServer() {
   server.init({
     notify: false,
+    open: false,
     port,
     server: {
       baseDir: 'dist',
@@ -188,9 +215,9 @@ function startDistServer() {
 
 let serve;
 if (isDev) {
-  serve = series(clean, parallel(styles, scripts, fonts), startAppServer);
+  serve = series(clean, parallel(styles, scripts, vendor, fonts), startAppServer);
 } else if (isTest) {
-  serve = series(clean, scripts, startTestServer);
+  serve = series(clean, scripts, vendor, startTestServer);
 } else if (isProd) {
   serve = series(build, startDistServer);
 }
