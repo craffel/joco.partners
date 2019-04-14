@@ -18,7 +18,7 @@ grid.addEventListener('click', ev => {
   while (target.tagName !== 'HTML') {
       if (target.classList.contains('card-grow')) {
         target.classList.toggle('card-expanded');
-        let clicked_element = target;
+        var clicked_element = target;
         break;
       }
     target = target.parentElement;
