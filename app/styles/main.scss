@@ -1,3 +1,6 @@
+@import 'node_modules/modern-normalize/modern-normalize';
+@import 'node_modules/formbase/src/styles/main';
+
 body {
   margin: 0 auto;
   max-width: 1440px;
@@ -27,7 +30,7 @@ body {
   .card-schedule {
     grid-column: span 2;
     grid-row: span 2;}
-  .card-form { grid-column: span 4; grid-row: span 6; }
+  .card-form { grid-column: span 6; grid-row: span 12; }
   .card-illustration { grid-column: span 6; grid-row: span 4;}
   .card-travel,
   .card-accommodations,

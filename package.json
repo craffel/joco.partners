@@ -4,10 +4,12 @@
     "node": ">=4"
   },
   "dependencies": {
+    "@pageclip/valid-form": "^1.1.1",
     "airtable": "^0.5.10",
     "animate-css-grid": "^1.4.0",
-    "axios": "^0.18.0",
-    "css-doodle": "^0.6.1"
+    "css-doodle": "^0.6.1",
+    "formbase": "^9.0.0",
+    "modern-normalize": "^0.5.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
