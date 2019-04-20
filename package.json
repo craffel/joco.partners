@@ -6,6 +6,7 @@
   "dependencies": {
     "airtable": "^0.5.10",
     "animate-css-grid": "^1.4.0",
+    "axios": "^0.18.0",
     "css-doodle": "^0.6.1"
   },
   "devDependencies": {
