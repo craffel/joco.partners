@@ -15,19 +15,19 @@ body {
 
   /* Grid Styles */
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(124px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(104px, 1fr));
   grid-template-rows: repeat(20, 80px);
   grid-gap: 0.5rem;
 }
 
 @media (min-width: 900px) {
-  .card-headline { grid-column: span 6; }
-  .card-slideshow { grid-column: span 4; grid-row: span 5; }
-  .card-invitation { grid-column: span 6; grid-row: span 2; }
+  .card-headline { grid-column: span 7; }
+  .card-slideshow { grid-column: span 5; grid-row: span 5; }
+  .card-invitation { grid-column: span 7; }
   .card-schedule {
-    grid-column: span 3;
+    grid-column: span 2;
     grid-row: span 2;}
-  .card-rsvp { grid-column: span 4; grid-row: span 6; }
+  .card-form { grid-column: span 4; grid-row: span 6; }
   .card-illustration { grid-column: span 6; grid-row: span 4;}
   .card-travel,
   .card-accommodations,
