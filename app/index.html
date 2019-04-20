@@ -9,7 +9,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <!-- Place favicon.ico in the root directory -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/0.5.0/modern-normalize.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.1/tiny-slider.css">
+
 <!-- build:css styles/main.css -->
 <link rel="stylesheet" href="styles/main.css">
 <!-- endbuild -->
@@ -38,8 +38,80 @@
     <div id="content-schedule3" class="card card-schedule"></div>
     <div id="content-schedule4" class="card card-schedule"></div>
 
-    <!-- RSVP -->
-    <div id="content-rsvp" class="card card-grow card-rsvp"></div>
+    <!-- FORM -->
+    <div id="content-form" class="card card-grow card-form">
+      <div id="content-rsvp" class="card-rsvp"></div>
+      <div>
+        <form id="rsvp-form">
+          <div class="form-group">
+            <label>Input type "Text"</label>
+            <input type="text" name="XXXXXXXXXXXX" placeholder="Enter your username">
+            <label class="form-label" for="name">Name</label>
+            <input class="form-input" type="text" id="name">
+            <span class="form-message"></span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email</label>
+            <input class="form-input" type="email" id="email">
+            <span class="form-message"></span>
+          </div>
+
+          <div class="form-group">
+            <span class="form-label">I am...</label>
+            <label class="form-radio">
+              <input type="radio" name="definitely-attending">
+              <i class="form-icon"></i> Definitely planning to attend
+            </label>
+            <label class="form-radio">
+              <input type="radio" name="maybe-attending">
+              <i class="form-icon"></i> Not sure if I can attend
+            </label>
+            <label class="form-radio">
+              <input type="radio" name="not-attending">
+              <i class="form-icon"></i> Definitely not able to attend ☹️
+            </label>
+          </div>
+
+          <div class="form-group">
+            <span class="form-label">If attending, I'll be there for...</label>
+            <label class="form-checkbox">
+              <input type="checkbox" name="dinner">
+              <i class="form-icon"></i> Dinner on Friday night
+            </label>
+            <label class="form-checkbox">
+              <input type="checkbox">
+              <i class="form-icon"></i> Ceremony & picnic lunch on Saturday
+            </label>
+            <label class="form-checkbox">
+              <input type="checkbox">
+              <i class="form-icon"></i> Reception on Saturday night
+            </label>
+            <label class="form-checkbox">
+              <input type="checkbox">
+              <i class="form-icon"></i> Dim Sum on Sunday morning
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="name">My dietary restrictions are...</label>
+            <input class="form-input" type="text" id="dietary">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="name">Song(s) that I would get down to on the dance floor...</label>
+            <input class="form-input" type="text" id="music">
+          </div>
+
+          <label class="form-checkbox">
+              <input type="checkbox">
+              <i class="form-icon"></i> I would like transportation from the ceremony to the picnic area (~15 minute walk through the park, with a bit of a hill)
+            </label>
+
+          <div><input type="submit" value="Send RSVP"></div>
+
+        </form>
+      </div>
+    </div>
 
     <!-- ILLUSTRATION -->
     <div id="content-illustration" class="card card-illustration illustration">
@@ -108,6 +180,7 @@
   </div>
 
   <!-- build:js scripts/vendor.js -->
+  <script type="text/javascript" src="/node_modules/axios/dist/axios.min.js"></script>
   <script type="text/javascript" src="/node_modules/airtable/build/airtable.browser.js"></script>
   <script type="text/javascript" src="/node_modules/animate-css-grid/dist/main.js"></script>
   <script type="text/javascript" src="/node_modules/css-doodle/css-doodle.min.js"></script>
