@@ -1,22 +1,24 @@
 /*
-** SELECT 15 RANDOM PHOTOS
+** SELECT 12 RANDOM PHOTOS
 */
 let photoArray = []
+
 while(photoArray.length < 12){
     let r = Math.floor(Math.random()*171) + 1;
     if(photoArray.indexOf(r) === -1) photoArray.push(r);
 }
 
 photoArray.forEach(function(photoNumber, i) {
-  let newPhoto = '<div class="slideshow-image crossfade-animation" style="background-image: url(../images/' + photoNumber + '.jpg)"></div>';
+
+  let newPhoto = '<div class="slideshow-image crossfade-animation" data-piio-bck="../images/' + photoNumber + '.jpg"></div>';
   let newEl = document.createElement('div');
 
   newEl.innerHTML = newPhoto;
-  newEl.className = 'slideshow-container';
 
   while(newEl.firstChild) {
     document.getElementById('slideshow').appendChild(newEl.firstChild);
   }
+
 });
 
 /*
@@ -54,58 +56,60 @@ photoArray.forEach(function(photoNumber, i) {
 // });
 
 /*
-** READ DATA FROM AIRTABLE
+** CONNECT TO AIRTABLE
 */
 const Airtable = require('airtable');
 const base = new Airtable({ apiKey: 'keyOTDtDLXGLvk8kt' }).base('appVYJBJSrP9QrYLa');
 
-const websiteContent = ['headline', 'invitation', 'schedule1', 'schedule2', 'schedule3', 'schedule4', 'rsvp', 'travel', 'accommodations', 'todo', 'faq', 'contact', 'contribute', 'requests', 'draw', 'secret'];
-
+/*
+** READ DATA FROM AIRTABLE
+*/
 base('Website Content').select({
     view: 'Grid view'
 }).eachPage(function page(records, fetchNextPage) {
+
     document.getElementById('invitation').innerHTML =
       '<h1>' +
       records[0].fields.Heading +
       '</h1><p>' +
       records[0].fields.Body +
-      '</p>'
-;
+      '</p>';
+
     document.getElementById('sched-one').innerHTML =
       '<h2 class="schedule">' +
       records[1].fields.Heading +
       '</h2><h3>' +
       records[1].fields.Body +
-      '</h3>'
-;
+      '</h3>';
+
     document.getElementById('sched-two').innerHTML =
       '<h2 class="schedule">' +
       records[2].fields.Heading +
       '</h2><h3>' +
       records[2].fields.Body +
-      '</h3>'
-;
+      '</h3>';
+
     document.getElementById('sched-three').innerHTML =
       '<h2 class="schedule">' +
       records[3].fields.Heading +
       '</h2><h3>' +
       records[3].fields.Body +
-      '</h3>'
-;
+      '</h3>';
+
     document.getElementById('sched-four').innerHTML =
       '<h2 class="schedule">' +
       records[4].fields.Heading +
       '</h2><h3>' +
       records[4].fields.Body +
-      '</h3>'
-;
+      '</h3>';
+
     document.getElementById('rsvp').innerHTML =
       '<h2>' +
       records[5].fields.Heading +
       '</h2><p>' +
       records[5].fields.Body +
-      '</p>'
-;
+      '</p>';
+
     document.getElementById('travel').innerHTML =
       '<h2>' +
       records[6].fields.Heading +
@@ -119,7 +123,6 @@ base('Website Content').select({
       '</h2><div class="body-hidden">' +
       records[7].fields.Body +
       '</div>';
-
     document.getElementById('todo').innerHTML =
       '<h2>' +
       records[8].fields.Heading +
@@ -127,13 +130,13 @@ base('Website Content').select({
       records[8].fields.Body +
       '</div>';
 
-      document.getElementById('contact').innerHTML =
-        '<h2>' +
+    document.getElementById('contact').innerHTML =
+      '<h2>' +
       records[9].fields.Heading +
       '</h2><div class="body-hidden">' +
       records[9].fields.Body +
-      '</div>'
-;
+      '</div>';
+
     document.getElementById('faq').innerHTML =
       '<h2>' +
       records[10].fields.Heading +
@@ -168,15 +171,6 @@ base('Website Content').select({
       '</h2><div class="body-hidden">' +
       records[14].fields.Body +
       '</div>';
-
-    // records.forEach(function(record, i) {
-    //   document.getElementById('content-' + websiteContent[i]).innerHTML =
-    //     '<div><h2>' + record.get('Name') + '</h2>'
-    //     + record.get('Content') + '</div>';
-    // });
-
-    // This function (`page`) will get called for each page of records.
-    fetchNextPage();
 
 }, function done(err) {
     if (err) { console.error(err); return; }
