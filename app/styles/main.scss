@@ -1,6 +1,9 @@
+@import 'node_modules/modern-normalize/modern-normalize';
+@import 'node_modules/formbase/src/styles/main';
+
 body {
   margin: 0 auto;
-  max-width: 90em;
+  max-width: 1440px;
   padding: 1em 0;
 }
 
@@ -15,50 +18,31 @@ body {
 
   /* Grid Styles */
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-auto-rows: 10em;
-  grid-gap: 1em;
-  grid-template-areas:
-    "headline headline headline slideshow slideshow"
-    "invitation invitation invitation slideshow slideshow"
-    "schedule schedule schedule illustration illustration"
-    "rsvp rsvp rsvp illustration illustration"
+  grid-template-columns: repeat(auto-fit, minmax(104px, 1fr));
+  grid-template-rows: repeat(20, 80px);
+  grid-gap: 0.5rem;
 }
 
-.card-headline {
-  grid-area: headline;
+@media (min-width: 900px) {
+  .card-headline { grid-column: span 7; }
+  .card-slideshow { grid-column: span 5; grid-row: span 5; }
+  .card-invitation { grid-column: span 7; }
+  .card-schedule {
+    grid-column: span 2;
+    grid-row: span 2;}
+  .card-form { grid-column: span 6; grid-row: span 12; }
+  .card-illustration { grid-column: span 6; grid-row: span 4;}
+  .card-travel,
+  .card-accommodations,
+  .card-todo,
+  .card-faq,
+  .card-contact,
+  .card-contribute,
+  .card-requests,
+  .card-cartoon,
+  .card-draw,
+  .card-secret { grid-column: span 2; grid-row: span 2;}
 }
-
-.card-slideshow {
-  grid-area: slideshow;
-}
-
-.card-invitation {
-  grid-area: invitation;
-}
-
-.card-schedule {
-  grid-area: schedule;
-}
-
-.card-illustration {
-  grid-area: illustration;
-}
-
-.card-rsvp {
-  grid-area: rsvp;
-}
-
-.card-travel {}
-.card-accommodations {}
-.card-todo {}
-.card-faq {}
-.card-contact {}
-.card-contribute {}
-.card-requests {}
-.card-cartoon {}
-.card-draw {}
-.card-secret {}
 
 .card {
 
@@ -82,10 +66,10 @@ body {
 
 .card-expanded {
   transform: perspective(0) rotateY(0);
-  grid-row-start: 2;
-  grid-row-end: span 3;
+  grid-row-start: 6;
+  grid-row-end: span 7;
   grid-column-start: 1;
-  grid-column-end: span 3;
+  grid-column-end: span 7;
 }
 
 .content-hidden {
@@ -112,7 +96,7 @@ body {
 
 /* If Grid is supported, remove the margin we set for the fallback */
 @supports (display: grid) {
-  .module {
+  .card {
     margin: 0;
   }
 }
