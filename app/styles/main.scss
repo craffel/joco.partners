@@ -1,5 +1,5 @@
 /**
-* IMPORT NORMALIZE AND FORMBASE
+* CSS RESET AND SOME BASIC FORM STYLES
 **/
 @import 'node_modules/modern-normalize/modern-normalize';
 @import 'node_modules/formbase/src/styles/main';
@@ -13,60 +13,8 @@ body {
   padding: 1em 0;
 }
 
-/**
-* CSS GRID LAYOUT
-**/
-
-.grid-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 0.8fr 1.2fr 1fr 1fr 1fr;
-}
-
-.grid-container > div {
-  padding: 20px;
-  overflow: hidden;
-  position: relative;
-}
-
-.grid-slideshow { grid-area: 1 / 4 / 3 / 6; }
-
-.grid-links {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-area: 3 / 4 / 6 / 6;
-}
-
-.grid-invitation { grid-area: 1 / 1 / 2 / 4; }
-
-.grid-schedule {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-area: 2 / 1 / 3 / 4;
-}
-
-#sched-one { grid-area: 1 / 1 / 2 / 2; }
-#sched-two { grid-area: 1 / 2 / 2 / 4; }
-#sched-three { grid-area: 2 / 1 / 3 / 3; }
-#sched-four { grid-area: 2 / 3 / 3 / 4; }
-
-.grid-rsvp { grid-area: 3 / 1 / 6 / 4; }
-
-/**
-* HIDE CONTENT IF CONTAINER IS NOT EXPANDED
-**/
-.body-hidden {
-  display: none;
-}
-
-.body-visible {
-  display: block;
-}
-
 /***
-* CSS LOADING BAR
+* CSS LOADING BAR IN CASE IMAGES ARE SLOW
 ***/
 .pace {
   -webkit-pointer-events: none;
@@ -91,9 +39,75 @@ body {
 }
 
 /**
+* CSS GRID LAYOUT
+**/
+@media (min-width: 767px) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 0.9fr 1.1fr 1fr 1fr 1fr;
+
+  }
+
+  .grid-slideshow { grid-area: 1 / 4 / 3 / 6; }
+
+  .grid-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-area: 3 / 4 / 6 / 6;
+
+    > div {
+      align-self: center;
+      text-align: center;
+    }
+  }
+
+  .grid-invitation { grid-area: 1 / 1 / 2 / 3; }
+
+  .grid-schedule {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-area: 2 / 1 / 3 / 4;
+
+    > div {
+      align-self: center;// justify-self: center;
+      text-align: center;
+    }
+  }
+
+  #sched-one { grid-area: 1 / 1 / 2 / 2; }
+  #sched-two { grid-area: 1 / 2 / 2 / 4; }
+  #sched-three { grid-area: 2 / 1 / 3 / 3; }
+  #sched-four { grid-area: 2 / 3 / 3 / 4; }
+
+  .grid-rsvp { grid-area: 3 / 1 / 6 / 4; }
+}
+
+.grid-container > div {
+  padding: 20px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 12px 8px;
+}
+
+/**
+* HIDE CONTENT IF CONTAINER IS NOT EXPANDED
+**/
+.body-hidden {
+  display: none;
+}
+
+.body-visible {
+  display: block;
+}
+
+/**
 * SLIDESHOW
 **/
 
+// variables for doing slideshow math
 $fade-in-delay: 3;
 $number-of-image: 12;
 $presentation-time-for-one-image: 4;
@@ -102,6 +116,8 @@ $animation-delay:
 $presentation-time-for-one-image + $duration-for-cross-fading;
 $total-animation-delay: $animation-delay * $number-of-image;
 
+
+// a couple mixins for creating the animations
 @mixin css3-animation( $property, $value ) {
   @each $prefix in -webkit-, '' {
     #{$prefix}#{$property}: $value;
@@ -117,6 +133,16 @@ $total-animation-delay: $animation-delay * $number-of-image;
   }
 }
 
+//crossfade keyframes
+@keyframes crossFade {
+  0% { opacity: 1; }
+  18.75% { opacity: 1; }
+  25% { opacity: 0; }
+  93.75% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+// drop in some fades
 @include css3-keyframes( fadeinOnPageLoad ) {
   from { opacity: 0; }
   to   { opacity: 1; }
@@ -130,7 +156,13 @@ $total-animation-delay: $animation-delay * $number-of-image;
   100% { opacity:1; }
 }
 
+.crossfade-animation {
+  @include css3-animation( animation, crossFade #{$total-animation-delay}s infinite );
+}
+
+// finishing touches on main container and item containers
 .grid-slideshow {
+  min-height: 300px;
   padding: 0;
   width: 100%;
   height: 100%;
@@ -153,16 +185,4 @@ $total-animation-delay: $animation-delay * $number-of-image;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-}
-
-.crossfade-animation {
-  @include css3-animation( animation, crossFade #{$total-animation-delay}s infinite );
-}
-
-@keyframes crossFade {
-  0% { opacity: 1; }
-  18.75% { opacity: 1; }
-  25% { opacity: 0; }
-  93.75% { opacity: 0; }
-  100% { opacity: 1; }
 }
