@@ -41,7 +41,7 @@ body {
 /**
 * CSS GRID LAYOUT
 **/
-@media (min-width: 767px) {
+@media (pointer:fine) {
   .grid-container {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -162,7 +162,7 @@ $total-animation-delay: $animation-delay * $number-of-image;
 
 // finishing touches on main container and item containers
 .grid-slideshow {
-  min-height: 300px;
+  min-height: 500px;
   padding: 0;
   width: 100%;
   height: 100%;
