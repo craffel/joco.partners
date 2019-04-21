@@ -1,16 +1,17 @@
 /**
-* CSS RESET AND SOME BASIC FORM STYLES
+* CSS RESET
 **/
 @import 'node_modules/modern-normalize/modern-normalize';
-@import 'node_modules/formbase/src/styles/main';
 
 /**
 * MAX WIDTH ON VIEWPORT
 **/
 body {
   margin: 0 auto;
-  max-width: 1440px;
-  padding: 1em 0;
+  max-width: 80vw;
+  padding: 2em 0;
+  background-color: #FFF9EA;
+  color: #282F39;
 }
 
 /***
@@ -44,32 +45,19 @@ body {
 @media (pointer:fine) {
   .grid-container {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 0.9fr 1.1fr 1fr 1fr 1fr;
-
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr 0.5fr 2.5fr;
+    grid-gap: 20px
   }
 
-  .grid-slideshow { grid-area: 1 / 4 / 3 / 6; }
+  .grid-invitation { grid-area: 1 / 1 / 2 / 6; }
 
-  .grid-links {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-area: 3 / 4 / 6 / 6;
-
-    > div {
-      align-self: center;
-      text-align: center;
-    }
-  }
-
-  .grid-invitation { grid-area: 1 / 1 / 2 / 3; }
+  .grid-slideshow { grid-area: 1 / 7 / 2 / 13; }
 
   .grid-schedule {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-area: 2 / 1 / 3 / 4;
+    grid-template-columns:repeat(6, 1fr);
+    grid-area: 2 / 1 / 3 / 9;
 
     > div {
       align-self: center;// justify-self: center;
@@ -77,12 +65,22 @@ body {
     }
   }
 
-  #sched-one { grid-area: 1 / 1 / 2 / 2; }
-  #sched-two { grid-area: 1 / 2 / 2 / 4; }
-  #sched-three { grid-area: 2 / 1 / 3 / 3; }
-  #sched-four { grid-area: 2 / 3 / 3 / 4; }
+  #sched-one { grid-column: 1 / 2; }
+  #sched-two { grid-column: 2 / 4; }
+  #sched-three { grid-column: 4 / 6; }
+  #sched-four { grid-column: 6 / 7; }
 
-  .grid-rsvp { grid-area: 3 / 1 / 6 / 4; }
+  .grid-rsvp { grid-area: 3 / 1 / 5 / 8; }
+
+  .grid-links {
+    display: grid;
+    grid-area: 2 / 10 / 4 / 13;
+
+    > div {
+      align-self: end;
+      text-align: center;
+    }
+  }
 }
 
 .grid-container > div {
@@ -162,10 +160,10 @@ $total-animation-delay: $animation-delay * $number-of-image;
 
 // finishing touches on main container and item containers
 .grid-slideshow {
-  min-height: 500px;
   padding: 0;
   width: 100%;
   height: 100%;
+  min-height: 30vh;
 
   @include css3-animation( animation, fadeinOnPageLoad #{$fade-in-delay}s );
 
@@ -185,4 +183,48 @@ $total-animation-delay: $animation-delay * $number-of-image;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+}
+
+/**
+* FORMBASE
+**/
+$formbase__margin: 0.8em; // Margin
+$formbase__padding: 0.8em; // Padding
+$formbase__radius: 2px;
+$formbase__color: #282F39;
+$formbase__svg: #282F39;
+$formbase__background: #fff;
+$formbase__border: #282F39;
+$formbase__active: #00A49C;
+$formbase__shadow: inset 0 0 0 rgba(0, 0, 0, .05);
+$formbase__duration: .4s;
+$formbase__timing: ease;
+
+@import 'node_modules/formbase/src/styles/main';
+
+form {
+  margin-top: 1.6em;
+}
+
+.label {
+  display: block;
+  margin-bottom: 0.6em;
+}
+
+/**
+* COLOR AND TYPOGRAPHY
+**/
+a {
+  color: #00A49C;
+}
+
+.grid-schedule {
+  h2 {
+    font-size: small;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    font-size: small;
+  }
 }
