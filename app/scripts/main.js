@@ -83,36 +83,43 @@ base('Website Content').select({
 ** SEND DATA TO AIRTABLE
 */
 window.addEventListener("load", function () {
+
   function sendData() {
-    // var XHR = new XMLHttpRequest();
 
-    // Bind the FormData object and the form element
-    var FD = new FormData(form);
+    // Extract data into a JSON object
+    let data = getFormData(form);
 
-    // // Define what happens on successful data submission
-    // XHR.addEventListener("load", function(event) {
-    //   alert(event.target.responseText);
-    // });
+    let date = new Date().toLocaleDateString();
 
-    // // Define what happens in case of error
-    // XHR.addEventListener("error", function(event) {
-    //   alert('Oops! Something went wrong.');
-    // });
+    let events = [];
+    if ( data.event1 ) { events.push(data.event1) }
+    if ( data.event2 ) { events.push(data.event2) }
+    if ( data.event3 ) { events.push(data.event3) }
+    if ( data.event4 ) { events.push(data.event4) }
 
-    // // Set up our request
-    // XHR.open("POST", "https://example.com/cors.php");
+    base('Guests').create({
+      "Name": data.name,
+      "RSVP Date": date,
+      "Email": data.email,
+      "RSVP Response": data.rsvp,
+      "Events Attending": events,
+      "Dietary Restrictions": data.dietary,
+      "Music Requests": data.music,
+      "Transportation Needs": data.transportation
+    }, function(err, record) {
+        if (err) { console.error(err); return; }
+        console.log(record.getId());
+    });
 
-    // // The data sent is what the user provided in the form
-    // XHR.send(FD);
   }
 
-  // Access the form element...
-  var form = document.getElementById("rsvp-form");
+  // Access the form data
+  const form = document.getElementById("rsvp-form");
+  const data = new Object();
 
-  // ...and take over its submit event.
+  // Prevent default and route form data through sendData function
   form.addEventListener("submit", function (event) {
     event.preventDefault();
-
     sendData();
   });
 });

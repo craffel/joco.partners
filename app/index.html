@@ -51,33 +51,33 @@
 
           <span class="label">I am...</span>
           <div class="control">
-            <input class="control__input" type="radio" name="rsvp" id="yes" value="yes">
+            <input class="control__input" type="radio" name="rsvp" id="yes" value="Planning to Attend">
             <label class="control__label" for="yes">Definitely planning to attend</label>
           </div>
           <div class="control">
-            <input class="control__input" type="radio" name="rsvp" id="maybe" value="maybe">
+            <input class="control__input" type="radio" name="rsvp" id="maybe" value="Not Sure">
             <label class="control__label" for="maybe">Not sure if I can attend</label>
           </div>
           <div class="control">
-            <input class="control__input" type="radio" name="rsvp" id="no" value="no">
+            <input class="control__input" type="radio" name="rsvp" id="no" value="Not Planning to Attend">
             <label class="control__label" for="no">Definitely not able to attend</label>
           </div>
 
           <span class="label">If attending, I'll be there for...</span>
           <div class="control">
-            <input class="control__input" type="checkbox" id="event1"  name="event1">
+            <input class="control__input" type="checkbox" id="event1"  name="event1" value="Fri Dinner">
             <label class="control__label" for="event1">Dinner on Friday night</label>
           </div>
           <div class="control">
-            <input class="control__input" type="checkbox" id="event2" name="event2">
+            <input class="control__input" type="checkbox" id="event2" name="event2" value="Sat Ceremony">
             <label class="control__label" for="event2">Ceremony & picnic lunch on Saturday</label>
           </div>
           <div class="control">
-            <input class="control__input" type="checkbox" id="event3" name="event3">
+            <input class="control__input" type="checkbox" id="event3" name="event3" value="Sat Reception">
             <label class="control__label" for="event3">Reception on Saturday night</label>
           </div>
           <div class="control">
-            <input class="control__input" type="checkbox" id="event4" name="event4">
+            <input class="control__input" type="checkbox" id="event4" name="event4" value="Sun Dim Sum">
             <label class="control__label" for="event4">Dim Sum on Sunday morning</label>
           </div>
 
@@ -88,7 +88,7 @@
           <input class="input" type="text" id="music" autocorrect="off" novalidate>
 
           <div class="control">
-            <input class="control__input" type="checkbox" id="transportation" name="transportation">
+            <input class="control__input" type="checkbox" id="transportation" name="transportation" value="Yes">
             <label class="control__label" for="transportation">I would like transportation from the ceremony to the picnic area (~15 minute walk through the park, with a bit of a hill)</label>
           </div>
 
@@ -164,6 +164,7 @@
   </div>
 
   <!-- build:js scripts/vendor.js -->
+  <script type="text/javascript" src="/node_modules/get-form-data/umd/get-form-data.js"></script>
   <script type="text/javascript" src="/node_modules/airtable/build/airtable.browser.js"></script>
   <script type="text/javascript" src="/node_modules/animate-css-grid/dist/main.js"></script>
   <script type="text/javascript" src="/node_modules/css-doodle/css-doodle.min.js"></script>
