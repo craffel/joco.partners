@@ -17,7 +17,6 @@ photoArray.forEach(function(photoNumber, i) {
   while(newEl.firstChild) {
     document.getElementById('content-slideshow').appendChild(newEl.firstChild);
   }
-
 });
 
 /*
