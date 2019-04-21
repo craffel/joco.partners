@@ -20,26 +20,25 @@
   <![endif]-->
 
   <!-- GRID CONTAINER START -->
-  <div class="container">
+  <div class="grid-container">
 
-    <!-- HEADER -->
-    <div id="content-headline" class="card card-headline"></div>
+    <!-- Invitation -->
+    <div id="invitation" class="grid-invitation"></div>
 
     <!-- SLIDESHOW -->
-    <div id="content-slideshow" class="card card-slideshow"></div>
-
-    <!-- INVITATION -->
-    <div id="content-invitation" class="card card-grow card-invitation"></div>
+    <div id="slideshow" class="grid-slideshow"></div>
 
     <!-- SCHEDULE -->
-    <div id="content-schedule1" class="card card-schedule"></div>
-    <div id="content-schedule2" class="card card-schedule"></div>
-    <div id="content-schedule3" class="card card-schedule"></div>
-    <div id="content-schedule4" class="card card-schedule"></div>
+    <div class="grid-schedule">
+      <div id="sched-one"></div>
+      <div id="sched-two"></div>
+      <div id="sched-three"></div>
+      <div id="sched-four"></div>
+    </div>
 
     <!-- FORM -->
-    <div id="content-form" class="card card-grow card-form">
-      <div id="content-rsvp" class="card-rsvp"></div>
+    <div class="grid-rsvp">
+      <div id="rsvp"></div>
       <div>
         <form id="rsvp-form">
 
@@ -98,68 +97,26 @@
       </div>
     </div>
 
-    <!-- ILLUSTRATION -->
-    <div id="content-illustration" class="card card-illustration illustration">
-      <css-doodle>
-        :doodle {
-        @grid: 10 / 100%;
-        background: #177554;
-        }
-        background: rgba(85, 222, 211, @rand(.9));
-        transition: .2s ease @rand(200ms);
-        transform: rotate(@rand(360deg));
-        clip-path: polygon(
-        @rand(100%) 0, 100% @rand(100%), 0 @rand(100%)
-        );
-      </css-doodle>
+    <div class="grid-links">
+      <div id="travel"></div>
+
+      <div id="accommodations"></div>
+
+      <div id="todo"></div>
+
+      <div id="contact"></div>
+
+      <div id="faq"></div>
+
+      <div id="contribute"></div>
+
+      <div id="requests"></div>
+
+      <div id="secret"></div>
+
+      <div id="draw"></div>
     </div>
 
-    <!-- NAV ROW 1 COL 1 -->
-    <div id="content-travel" class="card card-grow card-travel"></div>
-
-    <!-- NAV ROW 1 COL 2 -->
-    <div id="content-accommodations" class="card card-grow card-accommodations"></div>
-
-    <!-- NAV ROW 1 COL 3 -->
-    <div id="content-todo" class="card card-grow card-todo"></div>
-
-    <!-- NAV ROW 1 COL 4 -->
-    <div id="content-faq" class="card card-grow card-faq"></div>
-
-    <!-- NAV ROW 1 COL 5 -->
-    <div id="content-contact" class="card card-grow card-contact"></div>
-
-    <!-- NAV ROW 2 COL 1 -->
-    <div id="content-contribute" class="card card-grow card-contribute"></div>
-
-    <!-- NAV ROW 2 COL 2 -->
-    <div id="content-requests" class="card card-grow card-requests"></div>
-
-    <!-- NAV ROW 2 COL 3 -->
-    <div id="content-cartoon" class="card card-cartoon" style="padding: 0;">
-      <css-doodle>
-        :doodle {
-        @grid: 5 / 100%;
-        background: #FEAB00;
-        }
-        --hue: calc(180 + 1.5 * @row() * @col());
-        background: #FC5A00;
-        margin: -.5px;
-        transition: @r(.5s) ease;
-        clip-path: polygon(@pick(
-        '0 0, 100% 0, 100% 100%',
-        '0 0, 100% 0, 0 100%',
-        '0 0, 100% 100%, 0 100%',
-        '100% 0, 100% 100%, 0 100%'
-        ));
-      </css-doodle>
-    </div>
-
-    <!-- NAV ROW 2 COL 4 -->
-    <div id="content-draw" class="card card-grow card-draw"></div>
-
-    <!-- NAV ROW 2 COL 5 -->
-    <div id="content-secret" class="card card-grow card-secret"></div>
     <!-- GRID CONTAINER END -->
   </div>
 

@@ -1,6 +1,12 @@
+/**
+* IMPORT NORMALIZE AND FORMBASE
+**/
 @import 'node_modules/modern-normalize/modern-normalize';
 @import 'node_modules/formbase/src/styles/main';
 
+/**
+* MAX WIDTH ON VIEWPORT
+**/
 body {
   margin: 0 auto;
   max-width: 1440px;
@@ -8,106 +14,63 @@ body {
 }
 
 /**
-*** CSS GRID LAYOUT
+* CSS GRID LAYOUT
 **/
 
-.container {
-  /* Flex Fallback */
-  display: flex;
-  flex-wrap: wrap;
-
-  /* Grid Styles */
+.grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(104px, 1fr));
-  grid-template-rows: repeat(20, 80px);
-  grid-gap: 0.5rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 0.8fr 1.2fr 1fr 1fr 1fr;
 }
 
-@media (min-width: 900px) {
-  .card-headline { grid-column: span 7; }
-  .card-slideshow { grid-column: span 5; grid-row: span 5; }
-  .card-invitation { grid-column: span 7; }
-  .card-schedule {
-    grid-column: span 2;
-    grid-row: span 2;}
-  .card-form { grid-column: span 6; grid-row: span 12; }
-  .card-illustration { grid-column: span 6; grid-row: span 4;}
-  .card-travel,
-  .card-accommodations,
-  .card-todo,
-  .card-faq,
-  .card-contact,
-  .card-contribute,
-  .card-requests,
-  .card-cartoon,
-  .card-draw,
-  .card-secret { grid-column: span 2; grid-row: span 2;}
-}
-
-.card {
-
-  /* Grid Styles */
-  background: #C1D7C6;
-  color: #177554;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.grid-container > div {
   padding: 20px;
-  cursor: pointer;
   overflow: hidden;
   position: relative;
-
-  /* Flex Fallback */
-  margin-left: 5px;
-  margin-right: 5px;
-  flex: 1 1 400px;
 }
 
-.card-expanded {
-  transform: perspective(0) rotateY(0);
-  grid-row-start: 6;
-  grid-row-end: span 7;
-  grid-column-start: 1;
-  grid-column-end: span 7;
+.grid-slideshow { grid-area: 1 / 4 / 3 / 6; }
+
+.grid-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-area: 3 / 4 / 6 / 6;
 }
 
-.content-hidden {
+.grid-invitation { grid-area: 1 / 1 / 2 / 4; }
+
+.grid-schedule {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-area: 2 / 1 / 3 / 4;
+}
+
+#sched-one { grid-area: 1 / 1 / 2 / 2; }
+#sched-two { grid-area: 1 / 2 / 2 / 4; }
+#sched-three { grid-area: 2 / 1 / 3 / 3; }
+#sched-four { grid-area: 2 / 3 / 3 / 4; }
+
+.grid-rsvp { grid-area: 3 / 1 / 6 / 4; }
+
+/**
+* HIDE CONTENT IF CONTAINER IS NOT EXPANDED
+**/
+.body-hidden {
   display: none;
 }
 
-.content-visible {
+.body-visible {
   display: block;
 }
 
-@keyframes fadeIn {
-
-  0% {
-    opacity: 0;
-    transform: scale(0);
-  }
-
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-}
-
-/* If Grid is supported, remove the margin we set for the fallback */
-@supports (display: grid) {
-  .card {
-    margin: 0;
-  }
-}
-
-/**
-*** LOADING STYLES
-**/
+/***
+* CSS LOADING BAR
+***/
 .pace {
   -webkit-pointer-events: none;
   pointer-events: none;
-
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
