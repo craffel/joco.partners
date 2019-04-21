@@ -1,16 +1,17 @@
 /**
-* CSS RESET AND SOME BASIC FORM STYLES
+* CSS RESET
 **/
 @import 'node_modules/modern-normalize/modern-normalize';
-@import 'node_modules/formbase/src/styles/main';
 
 /**
 * MAX WIDTH ON VIEWPORT
 **/
 body {
   margin: 0 auto;
-  max-width: 1440px;
+  max-width: 1200px;
   padding: 1em 0;
+  background-color: #FFF9EA;
+  color: #282F39;
 }
 
 /***
@@ -211,4 +212,18 @@ form {
 .label {
   display: block;
   margin-bottom: 0.6em;
+}
+
+/**
+* COLOR AND TYPOGRAPHY
+**/
+a {
+  color: #00A49C;
+}
+
+.grid-schedule {
+  h2 {
+    font-size: small;
+    text-transform: uppercase;
+  }
 }
