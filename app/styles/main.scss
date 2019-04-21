@@ -186,3 +186,29 @@ $total-animation-delay: $animation-delay * $number-of-image;
   background-size: cover;
   background-position: center center;
 }
+
+/**
+* FORMBASE
+**/
+$formbase__margin: 0.8em; // Margin
+$formbase__padding: 0.8em; // Padding
+$formbase__radius: 2px;
+$formbase__color: #282F39;
+$formbase__svg: #282F39;
+$formbase__background: #fff;
+$formbase__border: #282F39;
+$formbase__active: #00A49C;
+$formbase__shadow: inset 0 0 0 rgba(0, 0, 0, .05);
+$formbase__duration: .4s;
+$formbase__timing: ease;
+
+@import 'node_modules/formbase/src/styles/main';
+
+form {
+  margin-top: 1.6em;
+}
+
+.label {
+  display: block;
+  margin-bottom: 0.6em;
+}
