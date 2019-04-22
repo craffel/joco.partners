@@ -10,7 +10,7 @@ while(photoArray.length < 12){
 
 photoArray.forEach(function(photoNumber, i) {
 
-  let newPhoto = '<div class="slideshow-image crossfade-animation" data-piio-bck="../images/' + photoNumber + '.jpg"></div>';
+  let newPhoto = '<div class="slideshow-image crossfade-animation" data-piio-bck="../images/photos/' + photoNumber + '.jpg"></div>';
   let newEl = document.createElement('div');
 
   newEl.innerHTML = newPhoto;

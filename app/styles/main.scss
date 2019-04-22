@@ -46,10 +46,10 @@ $color-redorange: #FC5A00;
 $color-orange: #FEAB00;
 $color-yellow: #F1E213;
 $color-blue: #3683DB;
-$color-blue: #4342B4;
+$color-purple: #4342B4;
 
 /**
-* MAX WIDTH ON VIEWPORT
+* STYLES
 **/
 body {
   margin: 0 auto;
@@ -60,9 +60,24 @@ body {
   font-family: 'Itim', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
+.border {
+  position: fixed;
+  left: 0;
+  top: 0;
+  border-width: 8px;
+  border-style: solid;
+  border-image: linear-gradient(to bottom, $color-green 0%, $color-purple 100%) 1;
+  opacity: 0.6;
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 a {
   color: $color-green;
-  cursor: url('../images/assets/cursorone.png'), default;
+  cursor: url('../images/cursorone.png'), default;
 }
 
 h1 {
@@ -76,7 +91,7 @@ h2 {
 }
 
 .grid-links h2 {
-  cursor: url('../images/assets/cursorone.png'), default;
+  cursor: url('../images/cursorone.png'), default;
 }
 
 .links {
@@ -140,13 +155,13 @@ h2 {
 }
 
 .pace .pace-progress {
-  background: #177554;
+  background: $color-blue;
   position: fixed;
   z-index: 2000;
   top: 0;
   right: 100%;
   width: 100%;
-  height: 5px;
+  height: 4px;
 }
 
 /**
