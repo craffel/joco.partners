@@ -53,11 +53,27 @@ $color-purple: #4342B4;
 **/
 body {
   margin: 0 auto;
-  max-width: 80vw;
-  padding: 4em 0;
+  max-width: 90vw;
+  padding: 1em 0;
   background-color: $color-egg;
   color: $color-ink;
   font-family: 'Itim', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 2em;
+  line-height: 1.25;
+
+  @media (pointer:fine) {
+    font-size: 1.125em;
+    line-height: 1.75;
+    max-width: 80vw;
+    padding: 4em 0;
+  }
+}
+
+body, label, input, textarea, select, option, fieldset, h1, h2, h3, h4, h5, h6 {
+  font-size-adjust: 0.5;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 a {
@@ -98,12 +114,17 @@ h2 {
 
 .grid-schedule {
   h2 {
-    font-size: 12px;
     text-transform: uppercase;
+
+    @media (pointer:fine) {
+      font-size: 12px;
+    }
   }
 
   h3 {
-    font-size: 18px;
+    @media (pointer:fine) {
+      font-size: 18px;
+    }
   }
 
   a {
