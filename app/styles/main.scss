@@ -4,6 +4,35 @@
 @import 'node_modules/modern-normalize/modern-normalize';
 
 /**
+* FONTS
+**/
+@font-face {
+  font-family: 'Itim';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Itim'), local('Itim-Regular'),
+       url('../fonts/itim-regular.woff2') format('woff2'),
+       url('../fonts/itim-regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Arima Madurai';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Arima Madurai Bold'), local('ArimaMadurai-Bold'),
+       url('../fonts/arima-madurai-700.woff2') format('woff2'),
+       url('../fonts/arima-madurai-700.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Arima Madurai';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Arima Madurai Black'), local('ArimaMadurai-Black'),
+       url('../fonts/arima-madurai-900.woff2') format('woff2'),
+       url('../fonts/arima-madurai-900.woff') format('woff');
+}
+/**
 * MAX WIDTH ON VIEWPORT
 **/
 body {
@@ -12,7 +41,34 @@ body {
   padding: 2em 0;
   background-color: #FFF9EA;
   color: #282F39;
+  font-family: 'Itim', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
+
+a {
+  color: #00A49C;
+}
+
+h1 {
+  font-family: 'Arima Madurai';
+  font-weight: 900;
+}
+
+h2 {
+  font-family: 'Arima Madurai';
+  font-weight: 700;
+}
+
+.grid-schedule {
+  h2 {
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+}
+
 
 /***
 * CSS LOADING BAR IN CASE IMAGES ARE SLOW
@@ -56,19 +112,19 @@ body {
 
   .grid-schedule {
     display: grid;
-    grid-template-columns:repeat(6, 1fr);
+    grid-template-columns:repeat(4, 1fr);
     grid-area: 2 / 1 / 3 / 9;
 
     > div {
-      align-self: center;// justify-self: center;
+      align-self: start;// justify-self: center;
       text-align: center;
     }
   }
 
-  #sched-one { grid-column: 1 / 2; }
-  #sched-two { grid-column: 2 / 4; }
-  #sched-three { grid-column: 4 / 6; }
-  #sched-four { grid-column: 6 / 7; }
+  // #sched-one { grid-column: 1 / 2; }
+  // #sched-two { grid-column: 2 / 4; }
+  // #sched-three { grid-column: 4 / 6; }
+  // #sched-four { grid-column: 6 / 7; }
 
   .grid-rsvp { grid-area: 3 / 1 / 5 / 8; }
 
@@ -76,9 +132,18 @@ body {
     display: grid;
     grid-area: 2 / 10 / 4 / 13;
 
-    > div {
-      align-self: end;
+    > div:nth-child(odd) {
       text-align: center;
+      align-self: end;
+      transform-origin: 0 0;
+      transform: skewY(-13deg);
+    }
+
+    > div:nth-child(even) {
+      text-align: center;
+      align-self: start;
+      transform-origin: 0 0;
+      transform: skewY(13deg);
     }
   }
 }
@@ -209,22 +274,4 @@ form {
 .label {
   display: block;
   margin-bottom: 0.6em;
-}
-
-/**
-* COLOR AND TYPOGRAPHY
-**/
-a {
-  color: #00A49C;
-}
-
-.grid-schedule {
-  h2 {
-    font-size: small;
-    text-transform: uppercase;
-  }
-
-  h3 {
-    font-size: small;
-  }
 }
