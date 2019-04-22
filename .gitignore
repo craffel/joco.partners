@@ -6,8 +6,6 @@ bower_components
 /test
 /dist
 /.tmp
-/photos
-/color
 
 # System Files
 .DS_Store
