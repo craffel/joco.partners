@@ -111,64 +111,64 @@ base('Website Content').select({
       '</p>';
 
     document.getElementById('travel').innerHTML =
-      '<h2>' +
+      '<a class="links">' +
       records[6].fields.Heading +
-      '</h2><div class="body-hidden">' +
+      '</a><div class="body-hidden">' +
       records[6].fields.Body +
       '</div>';
 
     document.getElementById('accommodations').innerHTML =
-      '<h2>' +
+      '<a class="links">' +
       records[7].fields.Heading +
-      '</h2><div class="body-hidden">' +
+      '</a><div class="body-hidden">' +
       records[7].fields.Body +
       '</div>';
     document.getElementById('todo').innerHTML =
-      '<h2>' +
+      '<a class="links">' +
       records[8].fields.Heading +
-      '</h2><div class="body-hidden">' +
+      '</a><div class="body-hidden">' +
       records[8].fields.Body +
       '</div>';
 
     document.getElementById('contact').innerHTML =
-      '<h2>' +
+      '<a class="links">' +
       records[9].fields.Heading +
-      '</h2><div class="body-hidden">' +
+      '</a><div class="body-hidden">' +
       records[9].fields.Body +
       '</div>';
 
     document.getElementById('faq').innerHTML =
-      '<h2>' +
+      '<a class="links">' +
       records[10].fields.Heading +
-      '</h2><div class="body-hidden">' +
+      '</a><div class="body-hidden">' +
       records[10].fields.Body +
       '</div>';
 
     document.getElementById('contribute').innerHTML =
-      '<h2>' +
+      '<a class="links">' +
       records[11].fields.Heading +
-      '</h2><div class="body-hidden">' +
+      '</a><div class="body-hidden">' +
       records[11].fields.Body +
       '</div>';
 
     document.getElementById('requests').innerHTML =
-      '<h2>' +
+      '<a class="links">' +
       records[12].fields.Heading +
-      '</h2><div class="body-hidden">' +
+      '</a><div class="body-hidden">' +
       records[12].fields.Body +
       '</div>';
 
     document.getElementById('secret').innerHTML =
-      '<h2>' +
+      '<a class="links">' +
       records[13].fields.Heading +
-      '</h2><div class="body-hidden">' +
+      '</a><div class="body-hidden">' +
       records[13].fields.Body +
       '</div>';
 
     document.getElementById('draw').innerHTML =
-      '<h2>' +
+      '<a class="links">' +
       records[14].fields.Heading +
-      '</h2><div class="body-hidden">' +
+      '</a><div class="body-hidden">' +
       records[14].fields.Body +
       '</div>';
 
