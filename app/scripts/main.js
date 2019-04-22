@@ -4,7 +4,7 @@
 let photoArray = []
 
 while(photoArray.length < 12){
-    let r = Math.floor(Math.random()*197) + 1;
+    let r = Math.floor(Math.random()*178) + 1;
     if(photoArray.indexOf(r) === -1) photoArray.push(r);
 }
 
