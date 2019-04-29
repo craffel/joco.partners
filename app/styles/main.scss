@@ -16,7 +16,7 @@
 }
 
 @font-face {
-  font-family: 'Arima Madurai';
+  font-family: 'Arima Madurai Bold';
   font-style: normal;
   font-weight: 700;
   src: local('Arima Madurai Bold'), local('ArimaMadurai-Bold'),
@@ -25,7 +25,7 @@
 }
 
 @font-face {
-  font-family: 'Arima Madurai';
+  font-family: 'Arima Madurai Black';
   font-style: normal;
   font-weight: 900;
   src: local('Arima Madurai Black'), local('ArimaMadurai-Black'),
@@ -33,9 +33,15 @@
        url('../fonts/arima-madurai-900.woff') format('woff');
 }
 
+$font-fallback: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"';
+$font-body: 'Itim';
+$font-heading-bold: 'Arima Madurai Bold';
+$font-heading-black: 'Arima Madurai Black';
+
 /**
 * COLORS
 **/
+$color-white: #ffffff;
 $color-ink: #282F39;
 $color-egg: #FFF9EA;
 $color-green: #00A49C;
@@ -57,7 +63,7 @@ body {
   padding: 1em 0;
   background-color: $color-egg;
   color: $color-ink;
-  font-family: 'Itim', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: $font-body, $font-fallback;
   font-size: 2em;
   line-height: 1.25;
 
@@ -82,13 +88,11 @@ a {
 }
 
 h1 {
-  font-family: 'Arima Madurai';
-  font-weight: 900;
+  font-family: $font-heading-black, $font-fallback;
 }
 
 h2 {
-  font-family: 'Arima Madurai';
-  font-weight: 700;
+  font-family: $font-heading-bold, $font-fallback;
 }
 
 .grid-links h2 {
@@ -227,7 +231,6 @@ h2 {
   padding: 20px;
   overflow: hidden;
   position: relative;
-  border-radius: 12px 6px;
 }
 
 /**
@@ -323,13 +326,13 @@ $total-animation-delay: $animation-delay * $number-of-image;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  border-width: 8px;
+  border-width: 6px;
   border-style: solid;
   border-image: linear-gradient(to bottom, $color-yellow 0%, $color-orange 100%) 1;
-  opacity: 0.6;
+  opacity: 0.5;
 
   img {
-    border-radius: 4px 2px;
+    border-radius: 2px;
   }
 }
 
@@ -339,11 +342,11 @@ $total-animation-delay: $animation-delay * $number-of-image;
 $formbase__margin: 0.8em; // Margin
 $formbase__padding: 0.8em; // Padding
 $formbase__radius: 2px;
-$formbase__color: #282F39;
-$formbase__svg: #282F39;
-$formbase__background: #fff;
-$formbase__border: #282F39;
-$formbase__active: #00A49C;
+$formbase__color: $color-ink;
+$formbase__svg: $color-ink;
+$formbase__background: $color-white;
+$formbase__border: $color-ink;
+$formbase__active: $color-green;
 $formbase__shadow: inset 0 0 0 rgba(0, 0, 0, .05);
 $formbase__duration: .4s;
 $formbase__timing: ease;
