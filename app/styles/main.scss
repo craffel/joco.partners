@@ -211,18 +211,11 @@ h2 {
     display: grid;
     grid-area: 2 / 10 / 4 / 13;
 
-    > div:nth-child(odd) {
+    > div {
       text-align: center;
-      align-self: end;
+      align-self: center;
       transform-origin: 0 0;
-      transform: skewY(-13deg);
-    }
-
-    > div:nth-child(even) {
-      text-align: center;
-      align-self: start;
-      transform-origin: 0 0;
-      transform: skewY(13deg);
+      transform: skewY(-12deg);
     }
   }
 }
