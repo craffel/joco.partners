@@ -339,21 +339,24 @@ $total-animation-delay: $animation-delay * $number-of-image;
 /**
 * FORM STYLES
 **/
+form {
+  margin-top: 1.6em;
+}
+
 .input {
   box-sizing: border-box;
   width: 100%;
-  margin-bottom: 0.8em;
   padding: 0.8em;
   background: #ffffff;
   border: 1px solid $color-ink;
   border-radius: 2px;
   resize: vertical;
   color: $color-ink;
-  box-shadow: 4px 4px rgba(0, 0, 0, 0.4);
-}
 
-form {
-  margin-top: 1.6em;
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.4);
+  }
 }
 
 .label {
@@ -361,7 +364,7 @@ form {
   margin-bottom: 0.6em;
 }
 
-.control__group {
+.control-group {
   display: flex;
   justify-content: space-around;
 }
@@ -374,16 +377,15 @@ form {
   margin-left: 0.8em;
 }
 
-.control__label {
-  padding: 0.8em;
+.control-label {
+  padding: 1em;
   background: #ffffff;
   border: 1px solid $color-ink;
   border-radius: 2px;
-  resize: vertical;
   display: inline-block;
   text-align: center;
   width: 100%;
-  box-shadow: 4px 4px rgba(0, 0, 0, 0.4);
+  height: 100%;
 }
 
 [name='rsvp'],
@@ -395,12 +397,44 @@ form {
   opacity: 0;
 
   &:hover + label {
-    transform: scale(1.1);
+    transform: scale(1.05);
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.4);
   }
 
   &:checked + label {
     background: $color-lightgreen;
     border: 2px solid $color-green;
-    box-shadow: 1px 1px rgba(0, 0, 0, 0.4);
   }
+}
+
+button {
+  border-radius: 4px;
+  margin-top: 2em;
+  font-size: 1.25em;
+  padding: 0.5em;
+  color: white;
+  background: linear-gradient(75deg, #f1e213, #3683db, #df4935);
+  background-size: 600% 600%;
+  animation: ButtonGradient 30s ease infinite;
+
+  &:hover {
+    transform: scale(1.25);
+    box-shadow: 4px 4px rgba(0, 0, 0, 0.4);
+  }
+}
+
+@-webkit-keyframes ButtonGradient {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@-moz-keyframes ButtonGradient {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@keyframes ButtonGradient {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
 }
