@@ -179,7 +179,7 @@ base('Website Content').select({
 /*
 ** SEND DATA TO AIRTABLE
 */
-window.addEventListener("load", function () {
+window.addEventListener('load', function () {
 
   function sendData() {
 
@@ -195,14 +195,14 @@ window.addEventListener("load", function () {
     if ( data.event4 ) { events.push(data.event4) }
 
     base('Guests').create({
-      "Name": data.name,
-      "RSVP Date": date,
-      "Email": data.email,
-      "RSVP Response": data.rsvp,
-      "Events Attending": events,
-      "Dietary Restrictions": data.dietary,
-      "Music Requests": data.music,
-      "Transportation Needs": data.transportation
+      'Name': data.name,
+      'RSVP Date': date,
+      'Email': data.email,
+      'RSVP Response': data.rsvp,
+      'Events Attending': events,
+      'Dietary Restrictions': data.dietary,
+      'Music Requests': data.music,
+      'Transportation Needs': data.transportation
     }, function(err, record) {
         if (err) { console.error(err); return; }
         console.log(record.getId());
@@ -211,11 +211,11 @@ window.addEventListener("load", function () {
   }
 
   // Access the form data
-  const form = document.getElementById("rsvp-form");
+  const form = document.getElementById('rsvp-form');
   const data = new Object();
 
   // Prevent default and route form data through sendData function
-  form.addEventListener("submit", function (event) {
+  form.addEventListener('submit', function (event) {
     event.preventDefault();
     sendData();
   });
