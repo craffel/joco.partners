@@ -1,0 +1,155 @@
+<!DOCTYPE html> <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>joco.partners</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="scripts/get-form-data.js"></script>
+    <script src="scripts/main.js"></script>
+  </head>
+
+  <body>
+    <div id="header">
+      <img src="images/header.png" style="width: 100%;" />
+    </div>
+    <div id="main">
+      <div class="schedulerow">
+        <div class="schedulecolumn">
+          June 14<br />
+          6:30 – 9 PM<br />
+          Pre-wedding Dinner<br />
+          <a href="https://goo.gl/maps/ZnoKNVsbaSsJT1feA">Spark Social</a>
+        </div>
+        <div class="schedulecolumn">
+          June 15<br />
+          11 AM – 3 PM<br />
+          Ceremony &amp; Picnic<br />
+          <a href="https://goo.gl/maps/m7aMGFv1UwAZfn116">Golden Gate Park</a><br />
+        </div>
+        <div class="schedulecolumn">
+          June 15<br />
+          7:30 PM – 🌅<br />
+          Dance Party<br />
+          <a href="https://goo.gl/maps/aGwTswFZSSDpABTcA">Verdi Club</a><br />
+        </div>
+        <div class="schedulecolumn">
+          June 15<br />
+          10 AM – 12 PM<br />
+          Dim Sum<br />
+          <a href="https://goo.gl/maps/jKigZWkg37meWwdq7">Yank Sing (Rincon)</a><br />
+        </div>
+      </div>
+
+      <h1>COME CELEBRATE WITH US</h1>
+      <p>We're getting married, and we’d love for you to join us! You’re invited to spend the weekend of June 15th with us in San Francisco. Events will start with a pre-wedding dinner on Friday night, followed by the ceremony Saturday morning and a dance party at night. The weekend will wrap up with a dim sum brunch at Yank Sing. We hope you’ll be able to come! <a href="#rsvp-form">Click here to RSVP and let us know either way.</a></p>
+
+      <h1>HOTEL INFORMATION</h1>
+      <p>We have booked a block of rooms at the Harbor Court Hotel. You can reserve a room in this block via this <a href="https://gc.synxis.com/rez.aspx?Hotel=65857&amp;Chain=5173&amp;group=PERCHRAFWED">link</a>. <i>This room block is available until May 15th - make sure you book before then.</i></p>
+
+      <h1>IN LIEU OF GIFTS</h1>
+      <p>Your presence is the best present (seriously!). If you’d really like to get us a gift, we would love for you to make a donation to one of our favorite non-profits:</p>
+      <ul>
+        <li>
+          <p><a href="https://www.omprakash.org/global/sankalp-rt/donate">Sankalp Rehabilitation Trust</a> - <i>Joanna worked at Sankalp during her year as an American Jewish World Service Fellow in Mumbai, India. Sankalp supports street-based individuals who use injection drugs. Through a harm reduction approach, Sankalp provides services ranging from needle and syringe exchange and opioid substitution therapy to longer term rehabilitation.</i></p>
+        </li>
+        <li>
+          <p><a href="https://bowl.nnaf.org/fundraiser/2003559">ACCESS Women’s Health Justice</a> </p>
+          <p>ACCESS supports individuals facing barriers to abortion in California while building a reproductive justice movement across the state. Joanna serves as a “Practice Support Network” volunteer and is currently fundraising for ACCESS’s “bowl-a-thon” until April 27th if you want to give an early gift! </p>
+        </li>
+        <li>
+          <p><a href="http://www.cohsf.org/">Coalition on Homelessness</a></p>
+          <p>The Coalition on Homelessness works to end homelessness and fight poverty in our city of San Francisco. They were one of the main groups supporting Proposition C, a recent ballot measure for raising money for housing and services which Joanna and Colin collected signatures for.</p>
+        </li>
+        <li>
+          <p><a href="https://movement.vote">Movement Voter Project</a></p><p class="" style="white-space:pre-wrap;">MVP raises money for local, community-based organizations which focus on getting out the vote. Supporting this kind of group not only improves voter turnout, but also strengthens community organizations regardless of the outcome of an election.</p>
+        </li>
+      </ul>
+
+      <h1>GETTING HERE AND GETTING AROUND</h1>
+      <p>Depending on where you are staying, your best bet is to fly into San Francisco (SFO) or Oakland (OAK). You can take BART (Bay Area Rapid Transit, our “metro”) or Lyft/Uber from either. (We personally use Lyft and not Uber for a <a href="https://www.businessinsider.com/uber-company-scandals-and-controversies-2017-11#august-2014-uber-is-slammed-for-trying-to-undermine-lyft-9">variety of reasons</a>.) If you are staying in the city, we recommend SFO. Please be aware that there is very bad rush hour traffic here (4-7), so be mindful of that if getting in soon before the Friday night dinner. </p>
+      <p>We strongly recommend *not* renting a car while you are here. Between ride apps and public transportation, there are plenty of ways to get around the city. Parking is usually very difficult, there are steep hills, and overly ambitious parking enforcement officers. </p>
+
+      <h1>DRESS CODE</h1>
+      <p>First, <i>June in San Francisco can be cold.</i> Like 50 degrees or colder cold. Please bring layers! This includes for the ceremony and picnic.</p>
+      <p>Above all, we want people to be comfortable and have fun. For the ceremony, other than probably not wearing jeans, feel free to wear what makes you feel beautiful and special, <em>and</em> ready to hang out in a fairly rustic picnic area. Please wear comfortable shoes because the ceremony and picnic are in a park on grass. Wear heels at your own risk! There will also be an approximately 15 minute, half mile walk from the Botanical Gardens (ceremony) to the Stowe Lake Boat House Picnic Area (picnic). Feel free to bring a change of shoes for the walk and/or let us know if you would like transportation from one to the other in the RSVP. For the nighttime party, we want you to wear what makes you feel fun/sexy/party and comfortable for DANCING. (Don’t worry, there will be coffee for you east coasters to stay up.) Feel free to get in touch if you have more questions :-) </p>
+
+      <h1>RSVP</h1>
+      <div class="grid-rsvp">
+        <div id="rsvp"></div>
+        <form id="rsvp-form">
+
+          <div class="control-group">
+            <div class="control">
+              <label class="label" for="name">Name</label>
+              <input class="input" type="text" id="name" autocorrect="off" required>
+            </div>
+
+            <div class="control">
+              <label class="label" for="email">Email</label>
+              <input class="input" type="email" id="email" autocapitalize="off" autocorrect="off" required>
+            </div>
+          </div>
+
+          <br />
+          <span class="label">I am...</span>
+          <div class="control-group">
+            <div class="control">
+              <input class="control-input" type="radio" name="rsvp" id="yes" value="Planning to Attend">
+              <label class="control-label" for="yes">Definitely planning <br />to attend 🎉</label>
+            </div>
+            <div class="control">
+              <input class="control-input" type="radio" name="rsvp" id="maybe" value="Not Sure">
+              <label class="control-label" for="maybe">Not sure <br />if I can attend 🤷‍♀️</label>
+            </div>
+            <div class="control">
+              <input class="control-input" type="radio" name="rsvp" id="no" value="Not Planning to Attend">
+              <label class="control-label" for="no">Definitely not <br />able to attend 😢</label>
+            </div>
+          </div>
+
+          <br />
+          <span class="label">If attending, I'll be there for...</span>
+          <div class="control-group">
+            <div class="control">
+              <input class="control-input" type="checkbox" id="event1"  name="event1" value="Fri Dinner">
+              <label class="control-label" for="event1"><span>Dinner on Friday night</span></label>
+            </div>
+            <div class="control">
+              <input class="control-input" type="checkbox" id="event2" name="event2" value="Sat Ceremony">
+              <label class="control-label" for="event2"><span>Ceremony &amp; picnic lunch on Saturday</span></label>
+            </div>
+            <div class="control">
+              <input class="control-input" type="checkbox" id="event3" name="event3" value="Sat Reception">
+              <label class="control-label" for="event3"><span>Reception on Saturday night</span></label>
+            </div>
+            <div class="control">
+              <input class="control-input" type="checkbox" id="event4" name="event4" value="Sun Dim Sum">
+              <label class="control-label" for="event4"><span>Dim Sum on Sunday morning</span></label>
+            </div>
+          </div>
+
+          <br />
+          <div class="control">
+            <label class="label" for="dietary">My dietary restrictions are...</label>
+            <input class="input" type="text" id="dietary" autocorrect="off" novalidate>
+          </div>
+
+          <br />
+          <div class="control">
+            <label class="label" for="music">Song(s) that I would get down to on the dance floor...</label>
+            <input class="input" type="text" id="music" autocorrect="off" novalidate>
+          </div>
+
+          <br />
+          <div class="control">
+            <input class="control-input" type="checkbox" id="transportation" name="transportation" value="Yes">
+            <label for="transportation">I would like transportation from the ceremony to the picnic area (~15 minute walk through the park, with a bit of a hill)</label>
+          </div>
+
+          <button type="submit">Send RSVP</button>
+
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
