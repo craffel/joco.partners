@@ -110,6 +110,7 @@ h1 {
   transition: background .1s;
   margin-block-end: 0.2em;
   text-align: center;
+  text-transform: uppercase;
 }
 
 h1:hover {
