@@ -16,15 +16,6 @@
   url('../fonts/arima-madurai-700.woff') format('woff');
 }
 
-@font-face {
-  font-family: 'Arima Madurai Black';
-  font-style: normal;
-  font-weight: 900;
-  src: local('Arima Madurai Black'), local('ArimaMadurai-Black'),
-  url('../fonts/arima-madurai-900.woff2') format('woff2'),
-  url('../fonts/arima-madurai-900.woff') format('woff');
-}
-
 body {
   padding: 1em 0;
   background-color: #fffcf3;
@@ -56,16 +47,6 @@ a {
   cursor: url('../images/cursorone.png'), default;
 }
 
-.headercolumn {
-  float: left;
-  width: 50%;
-}
-
-.headerrow:after {
-  content: "";
-  display: table;
-  clear: both;
-}
 .schedulecolumn {
   float: left;
   width: 25%;
@@ -83,7 +64,8 @@ a {
 }
 
 a {
-  background: linear-gradient(to bottom, #00A49C 0%, #00A49C 100%);
+  color: #FC5A00;
+  background: linear-gradient(to bottom, #FC5A00 0%, #F1E213 100%);
   background-position: 0 100%;
   background-repeat: repeat-x;
   background-size: 1px 1px;
@@ -91,7 +73,7 @@ a {
 }
 
 a:hover {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%2300A49C' stroke-width='1' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23FC5A00' stroke-width='1' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
   background-position: 0 100%;
   background-size: auto 4px;
   background-repeat: repeat-x;
@@ -99,22 +81,24 @@ a:hover {
 }
 
 h1 {
+  font-family: 'Arima Madurai Bold', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   color: #00A49C;
   flex: 1;
   font-size: 2.5em;
   text-decoration: none;
-  background-image: linear-gradient(to right, #DBEEDE 0, #DBEEDE 100%);
-  background-position: 0 0.7em;
-  background-size: 0 100%;
+  background-image: linear-gradient(to right, rgba(255, 252, 243, 1) 0, rgba(241, 226, 19, 0.75) 100%);
+  background-position: 0 0.3em;
+  background-size: 0% 40%;
   background-repeat: no-repeat;
-  transition: background .1s;
+  transition: background .2s;
   margin-block-end: 0.2em;
   text-align: center;
   text-transform: uppercase;
+  margin-top: 1.6em;
 }
 
 h1:hover {
-  background-size: 100% 100%;
+  background-size: 100% 40%;
 }
 
 p {
@@ -122,108 +106,6 @@ p {
   font-size: 1.4em;
 }
 
-form {
-  margin-top: 1.6em;
-}
-
-.input {
-  box-sizing: border-box;
-  width: 100%;
-  padding: 0.8em;
-  background: #ffffff;
-  border: 1px solid #282F39;
-  border-radius: 2px;
-  resize: vertical;
-  color: #282F39;
-}
-
-.input:hover {
-  transform: scale(1.03);
-  box-shadow: 2px 2px rgba(0, 0, 0, 0.4);
-}
-
-.label {
-  display: block;
-  margin-bottom: 0.6em;
-}
-
-.control-group {
-  display: flex;
-  justify-content: space-around;
-}
-
-.control {
-  flex: 1 1 0;
-}
-
-.control + .control {
-  margin-left: 0.8em;
-}
-
-.control-label {
-  padding: 1em;
-  background: #ffffff;
-  border: 1px solid #282F39;
-  border-radius: 2px;
-  display: inline-block;
-  text-align: center;
-  width: 80%;
-  height: 55%;
-}
-
-[name='rsvp'],
-[name='event1'],
-[name='event2'],
-[name='event3'],
-[name='event4'] {
-  position: fixed;
-  opacity: 0;
-}
-[name=rsvp]:hover + label,
-[name=event1]:hover + label,
-[name=event2]:hover + label,
-[name=event3]:hover + label,
-[name=event4]:hover + label {
-  transform: scale(1.05);
-  box-shadow: 2px 2px rgba(0, 0, 0, 0.4);
-}
-[name=rsvp]:checked + label,
-[name=event1]:checked + label,
-[name=event2]:checked + label,
-[name=event3]:checked + label,
-[name=event4]:checked + label {
-  background: #DBEEDE;
-  border: 1px solid #00A49C;
-}
-
-button {
-  border-radius: 4px;
-  margin-top: 2em;
-  font-size: 1.25em;
-  padding: 0.5em;
-  color: white;
-  background: linear-gradient(75deg, #f1e213, #3683db, #df4935);
-  background-size: 600% 600%;
-  animation: ButtonGradient 30s ease infinite;
-}
-
-button:hover {
-  transform: scale(1.25);
-  box-shadow: 4px 4px rgba(0, 0, 0, 0.4);
-}
-
-@-webkit-keyframes ButtonGradient {
-  0%{background-position:0% 82%}
-  50%{background-position:100% 19%}
-  100%{background-position:0% 82%}
-}
-@-moz-keyframes ButtonGradient {
-  0%{background-position:0% 82%}
-  50%{background-position:100% 19%}
-  100%{background-position:0% 82%}
-}
-@keyframes ButtonGradient {
-  0%{background-position:0% 82%}
-  50%{background-position:100% 19%}
-  100%{background-position:0% 82%}
+.widget {
+  border-radius: 100em;
 }
